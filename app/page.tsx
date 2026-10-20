@@ -55,7 +55,36 @@ export default function Home() {
 
                 </div>
         </div>
-        <div></div>
+        
+<div className="relative w-full max-w-[280px] overflow-hidden rounded-2xl border border-[#49332b] bg-[#211714]">
+
+  <Image
+    src="/hamburguer.png"
+    alt="Duplo Brasa Cheddar"
+    width={800}
+    height={600}
+    className="block h-auto w-full object-cover"
+  />
+
+  <div className="absolute bottom-0 left-0 flex items-center gap-2 rounded-tr-xl rounded-bl-xl bg-[#fffefd] px-3 py-2">
+
+    <span className="whitespace-nowrap rounded-md bg-[#fff5ed] px-2 py-1 text-[10px] font-bold text-[#e84b16]">
+      R$ 38,90
+    </span>
+
+    <div className="whitespace-nowrap">
+      <p className="text-[9px] font-bold text-[#211d1b]">
+        Duplo Brasa Cheddar
+      </p>
+
+      <p className="text-[7px] text-[#817771]">
+        2x Smash 90g + Bacon Caramelizado
+      </p>
+    </div>
+
+  </div>
+</div>
+
 
         
       </div>

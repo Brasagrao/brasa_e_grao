@@ -131,12 +131,92 @@ export default function RootLayout({
             {children}
           </main>
 
-          {/* footer */}
-          <footer className="border-t border-[#f0e9e2] bg-[#fffefd] px-6 py-6 text-center text-sm text-[#817771]">
-            <p>
-              © 2026 Brasa &amp; Grão Artesanal. Terça a Domingo • 18h às 23h30
-            </p>
-          </footer>
+          {/* FOOTER */}
+      <footer className="mt-auto w-full bg-[#171310] px-[4.2%] text-[#F8F3EE]">
+        <div className="flex min-h-[104px] items-center justify-between gap-6 border-b border-white/10 py-6 max-[760px]:flex-col max-[760px]:items-start">
+          
+          {/* LOGO E ENDEREÇO */}
+          <Link
+            href="/"
+            className="flex items-center gap-3 no-underline"
+          >
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#ff4b08] to-[#ff9900] text-white shadow-[0_4px_11px_rgba(230,91,10,0.2)]">
+              <svg
+                viewBox="0 0 32 32"
+                fill="none"
+                className="h-6 w-6"
+                aria-hidden="true"
+              >
+                <path
+                  d="M16 5.5c0 3-4.5 4.5-4.5 8a4.5 4.5 0 0 0 9 0c0-1.7-1-3-2.2-4.2"
+                  stroke="currentColor"
+                  strokeWidth="2.3"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M9 17.5h14l2 6.5H7l2-6.5Z"
+                  stroke="currentColor"
+                  strokeWidth="2.3"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12 21h8"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+
+            <span className="flex flex-col gap-1">
+              <span className="font-serif text-xl font-bold leading-none tracking-tight text-white">
+                Brasa &amp; Grão
+              </span>
+              <span className="text-[10px] font-medium uppercase tracking-[0.5px] text-[#928780]">
+                Rua dos Pinheiros, 480 • São Paulo
+              </span>
+            </span>
+          </Link>
+
+          {/* LINKS */}
+          <nav
+            aria-label="Navegação do rodapé"
+            className="flex flex-wrap items-center gap-x-7 gap-y-3 text-[13px] font-medium text-[#F0EAE5] max-[760px]:gap-x-5"
+          >
+            <Link
+              href="/"
+              className="transition-colors hover:text-orange-500"
+            >
+              Início
+            </Link>
+
+            <Link
+              href="/cardapio"
+              className="transition-colors hover:text-orange-500"
+            >
+              Cardápio Completo
+            </Link>
+
+            <Link
+              href="/gestor"
+              className="transition-colors hover:text-orange-500"
+            >
+              Área do Gestor (Admin)
+            </Link>
+          </nav>
+        </div>
+
+        {/* DIREITOS AUTORAIS E HORÁRIO */}
+        <div className="flex min-h-[68px] items-center justify-between gap-4 py-5 text-xs text-[#A69B93] max-[760px]:flex-col max-[760px]:items-start">
+          <p className="leading-relaxed">
+            © 2026 Brasa &amp; Grão Artesanal. Layout didático para aula de Next.js (Rotas &amp; Layouts).
+          </p>
+
+          <p className="shrink-0">
+            Terça a Domingo • 18h às 23h30
+          </p>
+        </div>
+      </footer>
 
         </div>
       </body>

@@ -80,7 +80,7 @@ const complementos = [
     descricao:
       "Grãos de microlote da Serra da Mantiqueira com notas de chocolate amargo e avelã, leite vaporizado cremoso.",
     imagem:
-      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     etiqueta: "Quente/Gelado",
     preco: 15.9,
     categoria: "Cafés & Shakes",
@@ -91,7 +91,7 @@ const complementos = [
     descricao:
       "Servido quentinho na panelinha de ferro com sorvete de creme artesanal e farofa crocante de castanhas.",
     imagem:
-      "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     etiqueta: "Sobremesa",
     preco: 28.9,
     categoria: "Cafés & Shakes",
@@ -273,6 +273,69 @@ export default function CardapioPage() {
              Para compartilhar na mesa ou fechar sua refeição com chave de ouro.
           </p>
           
+          <div className="mt-7 grid grid-cols-1 gap-5 lg:grid-cols-2">
+    {complementos
+      .filter(
+        (produto) =>
+          categoriaAtiva === "Todos os Itens" ||
+          produto.categoria === categoriaAtiva
+      )
+      .map((produto) => (
+        <article
+          key={produto.id}
+          className="flex min-w-0 flex-col gap-4 rounded-[22px] border border-[#E9E0D7] bg-white p-4 shadow-sm transition duration-300 hover:shadow-md sm:flex-row sm:items-center sm:gap-6 sm:p-6"
+        >
+          {/* IMAGEM */}
+          <div className="h-44 w-full shrink-0 overflow-hidden rounded-2xl sm:h-[132px] sm:w-[165px]">
+            <img
+              src={produto.imagem}
+              alt={produto.nome}
+              loading="lazy"
+              className="h-full w-full object-cover transition duration-500 hover:scale-105"
+            />
+          </div>
+
+          {/* INFORMAÇÕES */}
+          <div className="flex min-w-0 flex-1 flex-col">
+            {/* NOME E ETIQUETA */}
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <h3 className="min-w-0 flex-1 text-lg font-extrabold leading-snug tracking-tight sm:text-xl">
+                {produto.nome}
+              </h3>
+
+              <span className="shrink-0 rounded-full border border-orange-100 bg-[#FFF8F0] px-4 py-2 text-xs font-semibold text-orange-700">
+                {produto.etiqueta}
+              </span>
+            </div>
+
+            {/* DESCRIÇÃO */}
+            <p className="mt-2 text-sm leading-6 text-[#625A54] sm:text-base">
+              {produto.descricao}
+            </p>
+
+            {/* PREÇO E BOTÃO */}
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+              <p className="text-2xl font-serif font-extrabold text-orange-600">
+                {produto.preco.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </p>
+
+              <button
+                type="button"
+                onClick={() =>
+                  console.log("Adicionar ao pedido:", produto.nome)
+                }
+                className="rounded-xl border border-[#E9E0D7] bg-white px-5 py-3 text-sm font-bold text-[#241B16] transition hover:border-orange-500 hover:bg-orange-50"
+              >
+                + Adicionar
+              </button>
+            </div>
+          </div>
+        </article>
+      ))}
+  </div>
     </div>
   );
 }
